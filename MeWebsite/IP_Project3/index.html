@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xlang="en"> <head> <meta charset="UTF-8">
+<title>Quiz</title>
+<script language="javascript">
+	
+	function f2c(){
+		var f = document.getElementById("fahr").value;
+		var c = (f-32)*5/9;
+		document.getElementById("cel").value = c;
+	}
+	var c;
+	var d;
+	var apb;
+	var ans;
+	var correct = 0;		//Number correct
+	
+	
+	
+	
+	function Ques(){
+		document.getElementById("numCorrect").innerHTML = correct+" questions left"; 	
+		
+		var a = Math.floor(Math.random()*16);
+		var b = Math.floor(Math.random()*16);
+		c = a.toString(16);	//hex
+		d = b.toString(16);	//hex
+		apb = a + b;		//hardwired for now
+		ans = apb.toString(16);	//hex of a + b
+		document.getElementById("hexNums").innerHTML = c+"+"+d;
+		
+	}
+	var numHex;
+	function getNewNum(){
+		var num = Math.floor(Math.random()*16).toString(2);
+		var numBin = num.toString(2);
+		numHex = num.toString(16);
+		document.getElementById("binaryNum").innerHTML = numBin;
+	}
+	
+	function getAnswer(){
+		var u = document.getElementById("uGuess").value;	//correct answer
+		
+		if (u == ans){
+			document.getElementById("response").innerHTML = "Right"; //print
+			correct++;
+		} else {
+			document.getElementById("response").innerHTML = "Wrong: Correct answer is: "+ans;
+		}
+		
+		
+	}
+	
+	// onload() is  the key function when the page (re)loads, everything setup
+	window.onload = function(){
+		Ques();
+		//QuesNum = 5;
+		//correct = 0;
+		document.getElementById("uGuess").addEventListener('change', getAnswer);
+		
+	
+
+	} // end of onload()
+	
+	document.getElementById("nxt").addEventListener("click", Ques);
+
+</script>
+<style>
+div{
+ border-style: solid;
+ color: white;
+ background-color: gray;
+ border-color:blue;
+ }
+</style>
+</head>
+
+<body text-align = "center">
+<h1 style="border-style:solid;border-color:blue;background-color:gray;color:white">
+Hex Adder
+</h1>
+	<div>
+	<p><span id = "numCorrect"></span>
+    <p> Ques: <span id="hexNums"></span></p>
+	
+	<p> Answer: <input type="text" size="2" maxlength="2" id="uGuess" /></p>
+	<p><span id = "response"></span></p>
+	<p><span id = "complete"></span></p>
+	</div>
+	<footer>
+		<button id="nxt" href="" style="color: black"><b> Next Question </b></button>
+</body>
+</html>

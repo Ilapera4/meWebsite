@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Gallery</title>
+<style>
+#thumb-area {
+	background-color:yellow;
+	width: 100px;
+	height: 1800px;
+	float: left;
+	text-align: center;
+}
+#image-area {
+	background-color:rgb(125, 255, 0);
+	height: 1800px;
+}
+.lrg {
+	transition-property: opacity;
+	transition-duration: 1s;
+
+	opacity: 0;
+	position: fixed;
+	top: 200px;
+	left: 225px;
+	
+	border-style: solid;
+	border-color: yellow;
+}
+.sm {
+	position: relative;
+	border-style: solid;
+	border-color: rgb(125, 255, 0);
+	
+}
+.sm:hover + .lrg{ 
+	opacity: 1;
+	
+}
+.Head {
+	
+	height: 75px;
+	position fixed;
+	top: 25px;
+	right: 25px;
+}
+h1{
+	class: Head;
+	position fixed;
+	text-align: center;
+	border-style: solid;
+	border-color: white;
+	
+	background-image: radial-gradient(rgb(125, 255, 0), yellow);
+	}
+
+</style>
+</head>
+
+<!- ------------------------------------------------------------------------------------------------------------------------------------------- ->
+
+<body style="background-color:black">
+	<div position="fixed" top="0" left="0" right="0">
+		<a href="../index.html"> back </a>
+		<h1>
+		Wildlife Gallery
+		</h1>
+	</div>
+	
+	<div id="thumb-area">
+	  <p>
+		<img class="sm" src="WLphotos/bobcat-sm.jpg">
+		<img class="lrg" src="WLphotos/bobcat-lg.jpg">
+		Bobcat
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/animals-bw-sm.png">
+		<img class="lrg" src="WLphotos/animals-bw-lg.jpg">
+		Animals
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/binocularmontage-sm.jpg">
+		<img class="lrg" src="WLphotos/binocularmontage-lg.jpg">
+		Binoculars
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/bison-cowskulls-sm.jpg">
+		<img class="lrg" src="WLphotos/bison-cowskulls-lg.jpg">
+		Bison
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/canadagoose-sm.jpg">
+		<img class="lrg" src="WLphotos/canadagoose-lg.jpg">
+		Canada Goose
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/deer-sm.jpg">
+		<img class="lrg" src="WLphotos/deer-lg.jpg">
+		Deer
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/duckcall-sm.jpg">
+		<img class="lrg" src="WLphotos/duckcall-lg.jpg">
+		Duck Call
+		<br>
+		<br>
+		<img class="sm" src="Wlphotos/flea-sm.jpg">
+		<img class="lrg" src="WLphotos/flea-lg.jpg">
+		Flea
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/frog-bird-trout-sm.jpg">
+		<img class="lrg" src="WLphotos/frog-bird-trout-lg.jpg">
+		FBT
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/grasshopper-sm.jpg">
+		<img class="lrg" src="WLphotos/grasshopper-lg.jpg">
+		Grasshopper
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/heron-sm.jpg">
+		<img class="lrg" src="Wlphotos/heron-lg.jpg">
+		Heron
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/lovebirds-sm.jpg">
+		<img class="lrg" src="WLphotos/lovebirds-lg.jpg">
+		lovebirds
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/moose-sm.jpg">
+		<img class="lrg" src="WLphotos/moose-lg.jpg">
+		Moose
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/nuthatch-sm.jpg">
+		<img class="lrg" src="WLphotos/nuthatch-lg.jpg">
+		Nuthatch
+		<br>
+		<br>
+		<img class="sm" src="WLphotos/redfox-sm.jpg">
+		<img class="lrg" src="WLphotos/redfox-lg.jpg">
+		Red Fox
+	  </p>
+	</div>
+
+	<div id="image-area">
+		
+	</div>
+
+
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<script language="javascript">
+
+var xdown,ydown,xup,yup;
+
+
+window.onload = function() {
+	theCanvas.addEventListener('mousedown', function(e) {
+		xdown = e.clientX-10;  ydown = e.clientY-10;
+		document.getElementById("info").innerHTML = "("+xdown+","+ydown+")";
+	});
+		theCanvas.addEventListener('mouseup', function(e) {
+		xup = e.clientX-10;  yup = e.clientY-10;
+		document.getElementById("info").innerHTML = "("+xup+","+yup+")";
+	});
+	//theCanvas.addEventListener('mouseup', drawSomething);
+	
+}
+
+function tempL(){
+	theCanvas.addEventListener('mouseup', drawSomething);
+}
+function tempR(){
+	theCanvas.addEventListener('mouseup', drawRec);
+}
+function tempC(){
+	theCanvas.addEventListener('mouseup', drawCir);
+}
+
+function drawSomething() {
+	
+	ctx = document.getElementById("theCanvas").getContext("2d");
+	ctx.beginPath();
+	ctx.moveTo(xdown, ydown);
+	ctx.lineTo(xup, yup);
+	ctx.stroke();
+	ctx.closePath();
+
+}
+
+function drawRec(){
+	
+	ctx = document.getElementById("theCanvas").getContext("2d");
+	ctx.beginPath();
+	//ctx.lineWidth="6";
+	//ctx.strokeStyle="#FFFF00";
+	ctx.rect(xdown,ydown,xup-xdown,yup-ydown); 
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function drawCir(){
+	
+	ctx = document.getElementById("theCanvas").getContext("2d");
+	ctx.beginPath();
+	ctx.arc((xup+xdown)/2, (yup+ydown)/2, (xup-xdown)/2, 0, 2 * Math.PI);
+	ctx.stroke();
+	ctx.closePath();
+}
+</script>
+</head>
+
+<body>
+
+
+
+<canvas id="theCanvas" width="400" height="200" style="border:1px solid #000000;"> </canvas>
+<p id="info"> </p>
+
+<form>
+<input type="button" value="Line" id="line"> 
+<input type="button" value="rectangle" id="rec">
+<input type="button" value="Circle" id="cir">
+
+</form>
+
+<script>
+document.getElementById("rec").addEventListener("click", tempR);
+document.getElementById("cir").addEventListener("click", tempC);
+document.getElementById("line").addEventListener("click", tempL);
+</script>
+</body>
+</html>

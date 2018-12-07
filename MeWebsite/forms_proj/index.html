@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Form basics</title>
+
+<style>
+#cdd {
+	display: none;
+}
+#mdd {
+	display: none;
+}
+#mathdd {
+	display: none;
+}
+</style>
+
+</head>
+
+<body style="text-align: center"><p>
+<form method="get" action="#">
+<h1 style="border-style: solid; border-color: blue">
+	<b> CS Major Courses </b>
+</h1>
+
+<p>
+	Term: &nbsp; &nbsp; &nbsp;
+	<input type="radio" name="theBox" value="A" >2018 &nbsp;&nbsp;
+	<input type="radio" name="theBox" value="A" >2019 &nbsp;&nbsp;
+	<input type="radio" name="theBox" value="A" >2020 &nbsp;&nbsp;
+</p>
+
+<form>
+	Alpha: 
+	<select id="mySelect">
+		<option value="">~~~~~~</option>
+		<option value="Math">MATH</option>
+		<option value="Mis">MIS</option>
+		<option value="CSCI">CSCI</option>
+	</select>
+</form>
+
+<script language = "javascript">
+	document.getElementById("mySelect").addEventListener("click", showMore);
+	
+	function showMore(){
+		var a = document.getElementById("mySelect").value;
+		if(a == "CSCI"){
+			document.getElementById("cdd").style.display = "inline";
+			document.getElementById("mdd").style.display = "none";
+			document.getElementById("mathdd").style.display = "none";
+		}else if(a == "Mis"){
+			document.getElementById("mdd").style.display = "inline";
+			document.getElementById("cdd").style.display = "none";
+			document.getElementById("mathdd").style.display = "none";
+		}else if(a == "Math"){
+			document.getElementById("mathdd").style.display = "inline";
+			document.getElementById("mdd").style.display = "none";
+			document.getElementById("cdd").style.display = "none";
+		}
+		
+		 
+	}
+</script>
+
+<br>
+
+<form id="dd" action = "">
+	Course Number: 
+		<select name="crse_numb_in" id="cdd">
+			<option value="">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</option>
+			<option value="CSCI">CSCI 1611 - A Gentle intro to Computer Programming</option>
+			<option value="CSCI">CSCI 1911 - Foundations of Programming</option>
+			<option value="CSCI">CSCI 2301 - Discrete Math</option>
+			<option value="CSCI">CSCI 2611 - A Gentle Intro to Computer Programming</option>
+			<option value="CSCI">CSCI 2761 - HTML and Web Design</option>
+			<option value="CSCI">CSCI 2911 - Computer Science 1</option>
+		</select>
+		<select id ="mdd">
+			<option value="">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</option>
+		    <option value="Mis">MIS 3000 - Foundations of Info Systems</option>
+			<option value="Mis">MIS 3020 - IS Project management</option>
+			<option value="Mis">MIS 3050 - Application Development</option>
+			<option value="Mis">MIS 3060 - Systems Analysis and Design</option>
+			<option value="Mis">MIS 3070 - IT Infrastructure</option>
+			</select>
+		<select id = "mathdd">
+			<option value="">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</option>
+			<option value="Math">MATH 3234 - Mathematical Cryptology</option>
+			<option value="Math">MATH 3301 - Discrete Mathmatics</option>
+			<option value="Math">MATH 4475 - Discrete Math</option>
+			<option value="Math">MATH 44 - A Gentle Intro to Computer Programming</option>
+			<option value="Math">CSCI 2761 - HTML and Web Design</option>
+			<option value="Math">CSCI 2911 - Computer Science 1</option>
+			</select>
+			<br>
+			<input type="submit"  />
+</form>
+
+
+
+
+
+
+<script>
+function myFunc(){
+	var x = document.getElementById("mySelect").value;
+	
+}
+</script>
+
+</body>
+</html>

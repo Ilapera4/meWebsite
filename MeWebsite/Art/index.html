@@ -1,0 +1,107 @@
+<!DOCTYPE html >
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<script language="javascript">
+
+var xdown,ydown,xup,yup;
+var Cnum, Lnum, Rnum;
+
+window.onload = function() {
+	theCanvas.addEventListener('mousedown', function(e) {
+		xdown = e.clientX-10;  ydown = e.clientY-10;
+		document.getElementById("info").innerHTML = "("+xdown+","+ydown+")";
+	});
+		theCanvas.addEventListener('mouseup', function(e) {
+		xup = e.clientX-10;  yup = e.clientY-10;
+		document.getElementById("info").innerHTML = "("+xup+","+yup+")";
+	});
+	//theCanvas.addEventListener('mouseup', drawSomething);
+	
+}
+
+function tempL(){
+	Lnum = true;
+	Cnum = false;
+	Rnum = false;
+	theCanvas.addEventListener('mouseup', drawLine);
+}
+function tempR(){
+	Lnum = false;
+	Cnum = false;
+	Rnum = true;
+	theCanvas.addEventListener('mouseup', drawRec);
+}
+function tempC(){
+	Lnum = false;
+	Cnum = true;
+	Rnum = false;
+	theCanvas.addEventListener('mouseup', drawCir);
+}
+
+function drawLine(){
+	if(Lnum == true){
+		var canvas = document.getElementById("theCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.moveTo(xdown, ydown);
+		ctx.lineTo(xup, yup);
+		ctx.strokeStyle = document.getElementById("color").value;
+		ctx.closePath();
+		ctx.stroke();
+	}
+}
+
+function drawRec(){
+	if(Rnum == true){
+		var canvas = document.getElementById("theCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.rect(xdown, ydown, xup-xdown, yup-ydown);
+		ctx.strokeStyle = document.getElementById("color").value;
+		ctx.closePath();
+		ctx.stroke();
+	}
+}
+
+function drawCir(){
+	if(Cnum == true){
+		var canvas = document.getElementById("theCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		if(xup>xdown){
+			ctx.arc((xup+xdown)/2, (yup+ydown)/2, (xup-xdown)/2, 0, 2 * Math.PI);
+		}else{
+			ctx.arc((xup+xdown)/2, (yup+ydown)/2, (xdown-xup)/2, 0, 2 * Math.PI);
+		}
+		ctx.strokeStyle = document.getElementById("color").value;
+		ctx.stroke();
+		ctx.closePath();
+	}
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+</script>
+</head>
+
+<body>
+<h1> Art Canvas </h1>
+
+
+
+<canvas id="theCanvas" width="400" height="200" style="border:1px solid #000000;"> </canvas>
+<p id="info"> </p>
+
+<button type="button" onclick="tempL()">Line</button>
+<button type="button" onclick="tempR()">Rectangle</button>
+<button type="button" onclick="tempC()">Circle</button>
+
+<input type="color" id="color" value="#ff0000">
+
+</body>
+<footer>
+<a href="../index.html">back</a>
+</footer>
+</html>
